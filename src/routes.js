@@ -13,5 +13,6 @@ routes.delete('/users/:id', UserController.delete);
 
 // 
 routes.get('/projects', ProjectsCrontroller.select);
+routes.post('/projects', ProjectsCrontroller.create);
 
 module.exports = routes;
