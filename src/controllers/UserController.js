@@ -4,6 +4,7 @@ module.exports = {
 
     async select(req, res){
         const results = await knex('users')
+        .where('deleted_at', null)
 
         return res.json(results)
     },
@@ -41,7 +42,8 @@ module.exports = {
 
             await knex('users')
             .where({ id })
-            .del()
+            .update('deleted_at', new Date())
+            // .del()
 
             return res.send()
 
